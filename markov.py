@@ -1,10 +1,16 @@
+"""Usage:
+Call python markov.py tag1 tag2 tag3 ....
+Options forthcoming.
+"""
+
 import flickr
 import urllib
 import Image
 import time
+import sys
 from random import choice, shuffle
 
-tags = ['toilet','tree','butterfly']
+tags = []
 alltags = set(tags)
 def load_photo(url):
 	file, mime = urllib.urlretrieve(url.encode('utf-8'))
@@ -25,10 +31,17 @@ def show_pic(tags):
 	newtagset.append(choice(newtags).text.encode('utf-8'))
 	return newtagset
 
-for i in range(10):
-	tags = show_pic(tags)
-	alltags = alltags | set(tags)
-	print tags
-	#print alltags
-	time.sleep(.1)
+
+def main(*tag_list):
+	print tag_list[1:]
+	tags = list(tag_list[1:])
+	alltags = set(tags)
+	for i in range(10):
+		tags = show_pic(tags)
+		alltags = alltags | set(tags)
+		print tags
+		#print alltags
+		time.sleep(.1)
 	
+if __name__ == '__main__':
+	sys.exit(main(*sys.argv))
