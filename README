@@ -1,1 +1,4 @@
 Use of the flickr API to generate slideshows using different generative probabilistic graphical models.
+
+DEPENDENCIES:
+Python Imaging Library (PIL) http://www.pythonware.com/products/pil/

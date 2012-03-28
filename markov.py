@@ -13,7 +13,7 @@ import os
 from random import choice, shuffle
 
 time_now = datetime.datetime.now()
-folder_name = time_now.strftime('%d-%m,%H-%M-%S')
+folder_name = time_now.strftime('%m-%d,%H-%M-%S')
 
 tags = []
 alltags = set(tags)
